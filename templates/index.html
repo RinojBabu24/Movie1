@@ -1,0 +1,141 @@
+
+{% extends "base.html" %}
+{% block title %} index {% endblock %}
+{% block extra_styles %}         
+
+<style>
+  body {
+    font-family: 'Arial', sans-serif;
+    background-color: #000000;
+    color: #fdf9f9;
+  }
+
+  h1 {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 2.5em;
+    color: #f30000;
+  }
+
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 20px 0;
+  }
+
+  .col-md-3 {
+    margin-bottom: 50px;
+  }
+
+  .card {
+    box-shadow: 0 8px 15px rgb(2, 23, 252);
+    transition: transform 0.10s;
+  }
+
+  .card:hover {
+    transform: scale(1.05);
+  }
+
+  .card-img-top {
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+  }
+
+  .card-body {
+    padding: 10px;
+  }
+
+  .card-title {
+    font-size: 1.6em;
+    margin-bottom: 10px;
+    color: #000000;
+  }
+
+  .card-text {
+    overflow: hidden;
+    max-height: 60px;
+    position: relative;
+    font-size: 0.9em;
+    color: #555;
+  }
+
+  .card-text.show-more {
+    max-height: none;
+  }
+
+  .show-more-btn {
+    cursor: pointer;
+    color: #007bff;
+    display: block;
+    margin-top: 10px;
+    font-size: 0.9em;
+    text-align: center;
+  }
+
+  .btn-warning {
+    background-color: #ffc107;
+    border: none;
+  }
+
+  .btn-danger {
+    background-color: #dc3545;
+    border: none;
+  }
+
+  .card-footer {
+    background-color: #f8f9fa;
+    border-top: 1px solid #e9ecef;
+    text-align: center;
+    padding: 10px;
+  }   
+
+  
+  
+</style>
+
+{% endblock %}
+
+{% block content %}
+
+
+  <div><h1 style="text-align: center;"><span style="color: #ff0000">M</span><span style="color: #ff4000">O</span><span style="color: #ff7f00">V</span><span style="color: #ffff00">I</span><span style="color: #80ff00">E</span><span style="color: #00ff00"> </span><span style="color: #00ffff">H</span><span style="color: #0080ff">U</span><span style="color: #0000ff">N</span><span style="color: #8b00ff">D</span><span style="color: #c50080">E</span><span style="color: #ff0000">R</span></h1></div>  
+        
+
+            <div class="row">
+              {% for i in movie %}
+              <div class="col-md-3">
+            <div class="card" style="width: 18rem;">
+              <img class="card-img-top" src="{{ i.img.url }}" alt="Card image cap" style="width: 18rem; height: 300px;">
+              <div class="card-body">
+                <h4 class="card-title"><b>{{ i.Name }}</b></h4>
+                <p class="card-text">
+                  <h7> Year : {{ i.Year }}</h7><br>
+                  Description : {{ i.Description }}</p>
+                  <span class="show-more-btn" onclick="toggleDescription(event)">Show More</span>
+              </div>
+              
+              <div class="card-body">
+                 <a class= "btn btn-warning" href="{% url 'fapp:update' i.id %}">update</a>
+                 <a class= "btn btn-danger" href="{% url 'fapp:delete' i.id %}">delete</a>
+                
+              </div>
+              <div class="card-footer">
+                <small class="text-muted">Last updated 3 mins ago</small>
+              </div>
+            </div>
+          </div>
+            {% endfor %}
+        </div>
+        </div>
+        <script>
+          function toggleDescription(event) {
+            const cardText = event.target.previousElementSibling;
+            cardText.classList.toggle('show-more');
+            event.target.textContent = cardText.classList.contains('show-more') ? 'Show Less' : 'Show More';
+          }
+        </script> 
+{% endblock %}
+
+       
+        

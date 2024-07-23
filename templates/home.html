@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block title %} Home {% endblock %}
+
+{% block content %}
+
+      <div class="container">
+        <h2>Movie Register</h2>
+        <form action="" method="POST" enctype="multipart/form-data">
+
+            {% csrf_token %}
+           
+            <div class="form-group">
+                <label for="name">Movie Name:</label>
+                <input type="text" id="name" name="Name" required>
+            </div>
+            <div class="form-group">
+                <label for="image">Cover pic:</label>
+                <input type="file" id="image" name="img" accept="image/*" required>
+            </div>
+            <div class="form-group">
+                <label for="year">Year:</label>
+                <input type="number" id="year" name="Year" required>
+            </div>
+            <div class="form-group">
+                <label for="description">Description:</label>
+                <textarea id="description" name="Description" rows="4" required></textarea>
+            </div>
+            <button type="submit">Register</button>
+        </form>
+        {% endblock %}
+    

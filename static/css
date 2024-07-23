@@ -1,0 +1,74 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+.container {
+    max-width: 500px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+.form-group {
+    margin-bottom: 15px;
+}
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+input[type="text"],
+input[type="number"],
+textarea,
+input[type="file"] {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+}
+button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+button:hover {
+    background-color: #218838;
+}
+
+
+/* navbar */
+
+.navbar {
+    background-color: #087ef4; /* Dark background */
+}
+.navbar-brand {
+    color: #f7f7f7; /* White text */
+    font-weight: bold;
+}
+.navbar-brand:hover {
+    color: #000000; /* Light grey text on hover */
+}
+.navbar-nav .nav-link {
+    color: #ffffff; /* White text for nav links */
+}
+.navbar-nav .nav-link.active {
+    color: #ffffff; /* Light grey text for active link */
+    font-weight: bold;
+}
+.navbar-nav .nav-link:hover {
+    color: #000000; /* Light grey text on hover */
+}
+.navbar-toggler {
+    border-color: #ffffff; /* White border for toggler button */
+}
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba%28255, 255, 255, 1%29' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
